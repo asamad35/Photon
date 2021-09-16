@@ -21,10 +21,14 @@ submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
 });
 document.addEventListener("scroll", () => {
-  if (
-    window.innerHeight + window.scrollY >=
-    document.body.offsetHeight - 1000
-  ) {
+  console.log(
+    window.innerHeight, // height of the visible window
+    window.scrollY, // height scrolled
+    document.body.offsetHeight, // total height of body
+    document.documentElement.scrollHeight // document.documentElement returns HTML element
+  );
+
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
     loadMore();
   }
 });
